@@ -1,4 +1,4 @@
-package BookStore;
+package bookStore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ public class BookStore {
 
     private List<Book> books = new ArrayList<>();
     private List<Book> shoppingCart = new ArrayList<>();
+    Util util = new Util();
 
     public void bookAdd(Book book) {
         books.add(book);
@@ -14,27 +15,18 @@ public class BookStore {
 
     public void showAllBooks() {
         for (Book book : books) {
-            printBookInfo(book);
+            util.printBookInfo(book);
         }
     }
 
     public void showBook(String bookTitle) {
         for (Book book : books) {
             if (book.getTitle().equals(bookTitle)) {
-                printBookInfo(book);
+                util.printBookInfo(book);
             }
         }
     }
 
-    private void printBookInfo(Book book) {
-        System.out.println("[" + book.getTitle()
-                + "] 저자: " + book.getAuthor()
-                + ", 출판사: " + book.getPublisher()
-                + ", 가격: " + book.getPrice() + "원"
-                + ", 남은 재고: " + book.getInventory() + "권");
-    }
-
-    //todo 예외 처리
     public void putShoppingCart(String bookTitle, int quantity) {
         for (Book book : books) {
             if (book.getTitle().equals(bookTitle)) {

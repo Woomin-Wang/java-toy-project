@@ -17,4 +17,8 @@ public class BookStock {
     public void setInventory(int inventory) {
         this.inventory = inventory;
     }
+
+    public Book getBook() {
+        return book;
+    }
 }

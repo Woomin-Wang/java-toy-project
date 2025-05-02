@@ -34,7 +34,10 @@ public class ShoppingCart {
             System.out.println("장바구니가 비어있습니다.");
             return;
         }
-        System.out.println("장바구니에 있는 책들이 결제되었습니다.");
+        for (Book book : shoppingCart.keySet()) {
+            System.out.println("[" + book.getTitle() + "] "
+                    + shoppingCart.get(book) + "권을 구매");
+        }
         System.out.println("총 결제 금액: " + getTotalPrice() + "원");
         shoppingCart.clear();
     }
